@@ -74,7 +74,7 @@ public class CxfAutoConfigurationTests {
     public void customPathWithTrailingSlash() {
         load(CxfAutoConfiguration.class, "cxf.path=/valid/");
         assertThat(this.context.getBean(ServletRegistrationBean.class).getUrlMappings(),
-                (Matcher<Iterable<? super String>>) hasItem("/valid/*"));
+                (Matcher) hasItem("/valid/*"));
     }
 
     @Test
@@ -83,7 +83,7 @@ public class CxfAutoConfigurationTests {
         assertThat(this.context.getBeansOfType(ServletRegistrationBean.class).size(),
                 equalTo(1));
         assertThat(this.context.getBean(ServletRegistrationBean.class).getUrlMappings(),
-                (Matcher<Iterable<? super String>>) hasItem("/valid/*"));
+                (Matcher) hasItem("/valid/*"));
     }
 
     @Test
