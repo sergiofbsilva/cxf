@@ -202,7 +202,7 @@ public class SamlTokenTest extends AbstractBusClientServerTestBase {
      */
     @org.junit.Test
     public void testAsymmetricSigned() throws Exception {
-
+        System.out.println("testAsymmetricSigned: " + test.toString());
         SpringBusFactory bf = new SpringBusFactory();
         URL busFile = SamlTokenTest.class.getResource("client.xml");
 
@@ -216,9 +216,10 @@ public class SamlTokenTest extends AbstractBusClientServerTestBase {
         DoubleItPortType samlPort = 
                 service.getPort(portQName, DoubleItPortType.class);
         updateAddressPort(samlPort, test.getPort());
-        
-        samlPort.doubleIt(25);
-        
+
+        int i = samlPort.doubleIt(25);
+        System.out.println("int : " + i);
+
         ((java.io.Closeable)samlPort).close();
         bus.shutdown(true);
     }

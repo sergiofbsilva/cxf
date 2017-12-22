@@ -19,14 +19,9 @@
 // START SNIPPET: service
 package demo.hw.server;
 
-import javax.jws.WebParam;
-import javax.jws.WebService;
+public class HelloWorldImpl implements HelloWorld {
 
-import org.apache.cxf.annotations.Policies;
-import org.apache.cxf.annotations.Policy;
-
-@Policies({@Policy(uri = "annotationpolicies/TestInterfacePolicy.xml")})
-@WebService
-public interface HelloWorld {
-    String sayHi(@WebParam(name = "text") String text);
+    public String sayHi(String text) {
+        return "Hello " + text;
+    }
 }

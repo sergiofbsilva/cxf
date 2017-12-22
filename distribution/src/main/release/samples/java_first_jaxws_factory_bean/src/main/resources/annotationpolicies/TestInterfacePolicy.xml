@@ -1,0 +1,55 @@
+<!-- 2.3.1.4 (WSS1.0) SAML1.1 Sender Vouches with X.509 Certificates, Sign, Optional Encrypt -->
+<wsp:Policy xmlns:sp="http://docs.oasis-open.org/ws-sx/ws-securitypolicy/200702" wsu:Id="DoubleItAsymmetricSignedPolicy" xmlns:wsp="http://www.w3.org/ns/ws-policy" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd">
+    <wsp:ExactlyOne>
+        <wsp:All>
+            <sp:AsymmetricBinding>
+                <wsp:Policy>
+                    <sp:InitiatorToken>
+                        <wsp:Policy>
+                            <sp:X509Token sp:IncludeToken="http://docs.oasis-open.org/ws-sx/ws-securitypolicy/200702/IncludeToken/AlwaysToRecipient">
+                                <wsp:Policy>
+                                    <sp:WssX509V3Token10/>
+                                </wsp:Policy>
+                            </sp:X509Token>
+                        </wsp:Policy>
+                    </sp:InitiatorToken>
+                    <sp:RecipientToken>
+                        <wsp:Policy>
+                            <sp:X509Token sp:IncludeToken="http://docs.oasis-open.org/ws-sx/ws-securitypolicy/200702/IncludeToken/Never">
+                                <wsp:Policy>
+                                    <sp:WssX509V3Token10/>
+                                </wsp:Policy>
+                            </sp:X509Token>
+                        </wsp:Policy>
+                    </sp:RecipientToken>
+                    <sp:AlgorithmSuite>
+                        <wsp:Policy>
+                            <sp:Basic128/>
+                        </wsp:Policy>
+                    </sp:AlgorithmSuite>
+                    <sp:Layout>
+                        <wsp:Policy>
+                            <sp:Strict/>
+                        </wsp:Policy>
+                    </sp:Layout>
+                    <sp:IncludeTimestamp/>
+                    <sp:OnlySignEntireHeadersAndBody/>
+                </wsp:Policy>
+            </sp:AsymmetricBinding>
+            <sp:Wss10>
+                <wsp:Policy>
+                    <sp:MustSupportRefKeyIdentifier/>
+                </wsp:Policy>
+            </sp:Wss10>
+            <sp:SignedSupportingTokens>
+                <wsp:Policy>
+                    <sp:SamlToken sp:IncludeToken="http://docs.oasis-open.org/ws-sx/ws-securitypolicy/200702/IncludeToken/AlwaysToRecipient">
+                        <wsp:Policy>
+                            <sp:WssSamlV11Token10/>
+                        </wsp:Policy>
+                    </sp:SamlToken>
+                </wsp:Policy>
+            </sp:SignedSupportingTokens>
+        </wsp:All>
+    </wsp:ExactlyOne>
+</wsp:Policy>

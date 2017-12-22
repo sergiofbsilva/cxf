@@ -1,0 +1,117 @@
+<soap:Envelope
+        xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/">
+    <soap:Header>
+        <wsse:Security
+                xmlns:wsse="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd"
+                xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" soap:mustUnderstand="1">
+            <wsu:Timestamp wsu:Id="TS-a3c8ee89-eb83-43d7-8875-507a1558427c">
+                <wsu:Created>2017-12-19T15:16:47.336Z</wsu:Created>
+                <wsu:Expires>2017-12-19T15:21:47.336Z</wsu:Expires>
+            </wsu:Timestamp>
+            <saml2:Assertion
+                    xmlns:saml2="urn:oasis:names:tc:SAML:2.0:assertion"
+                    xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+                    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ID="_376081d5-26d4-408c-ae1b-2514663e16d6" IssueInstant="2017-12-19T15:16:48.157Z" Version="2.0" xsi:type="saml2:AssertionType">
+                <saml2:Issuer>http://localhost:9000/helloWorld</saml2:Issuer>
+                <ds:Signature
+                        xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
+                    <ds:SignedInfo>
+                        <ds:CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"/>
+                        <ds:SignatureMethod Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha1"/>
+                        <ds:Reference URI="#_376081d5-26d4-408c-ae1b-2514663e16d6">
+                            <ds:Transforms>
+                                <ds:Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature"/>
+                                <ds:Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#">
+                                    <ec:InclusiveNamespaces
+                                            xmlns:ec="http://www.w3.org/2001/10/xml-exc-c14n#" PrefixList="xsd"/>
+                                </ds:Transform>
+                            </ds:Transforms>
+                            <ds:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1"/>
+                            <ds:DigestValue>qWE1L6i6GCyNY7L0s6YWdbxEFeE=</ds:DigestValue>
+                        </ds:Reference>
+                    </ds:SignedInfo>
+                    <ds:SignatureValue>lnRda3T+PnErd279e4m3ooW00HBtwKVJHMB/Inqif6Z0ab6kk7tN5QdDd1ujFW9lZ+UPqHKgBesB7y/q8UoBAw95f2rKDMALhdkFBbMxNF20D1MBwDeeV6Hq1IR/+qgU9SThWZeBPrTajZGwcvgCNvswctC48H0oqTgdDwFwK/0=</ds:SignatureValue>
+                    <ds:KeyInfo>
+                        <ds:X509Data>
+                            <ds:X509Certificate>MIICGjCCAYOgAwIBAgIESVRgATANBgkqhkiG9w0BAQUFADAzMRMwEQYDVQQKEwphcGFjaGUub3Jn
+                                MQwwCgYDVQQLEwNlbmcxDjAMBgNVBAMTBWN4ZmNhMB4XDTcwMDEwMTAwMDAwMFoXDTM4MDExOTAz
+                                MTQwN1owMzETMBEGA1UEChMKYXBhY2hlLm9yZzEMMAoGA1UECxMDZW5nMQ4wDAYDVQQDEwVhbGlj
+                                ZTCBnzANBgkqhkiG9w0BAQEFAAOBjQAwgYkCgYEAvu747/VShQ85f16DGSc4Ixh9PVpGguyEqrCs
+                                K8q9XHOYX9l9/g5wEC6ZcR2FwfNsoaHcKNPjd5sSTzVtBWmQjfBEfIqwTR7vuihOxyNTwEzVwIJz
+                                vo7p8/aYxk+VdBtQxq4UweIcf/iFkUbM1cZ1oiXRQzciRBi+C1BQCQE0qzsCAwEAAaM7MDkwIQYD
+                                VR0SBBowGIIWTk9UX0ZPUl9QUk9EVUNUSU9OX1VTRTAUBgNVHREEDTALgglsb2NhbGhvc3QwDQYJ
+                                KoZIhvcNAQEFBQADgYEAhLwkm+8psKt4gnbikGzV0TgpSWGcWxWKBi+z8tI2n6hFA5v1jVHHa4G9
+                                h3s0nxQ2TewzeR/k7gmgV2sI483NgrYHmTmLKaDBWza2pAuZuDhQH8GAEhJakFtKBP++EC9rNNpZ
+                                nqqHxx3qb2tW25qRtBzDmK921gg9PMomMc7uqRQ=</ds:X509Certificate>
+                        </ds:X509Data>
+                    </ds:KeyInfo>
+                </ds:Signature>
+                <saml2:Subject>
+                    <saml2:NameID Format="urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified" NameQualifier="sapID">ist24439</saml2:NameID>
+                    <saml2:SubjectConfirmation Method="urn:oasis:names:tc:SAML:2.0:cm:sender-vouches"/>
+                </saml2:Subject>
+                <saml2:Conditions NotBefore="2017-12-19T15:16:48.200Z" NotOnOrAfter="2017-12-19T15:21:48.200Z"/>
+                <saml2:AttributeStatement>
+                    <saml2:Attribute FriendlyName="subject" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri">
+                        <saml2:AttributeValue xsi:type="xsd:string">ist24439</saml2:AttributeValue>
+                    </saml2:Attribute>
+                </saml2:AttributeStatement>
+            </saml2:Assertion>
+            <saml2:Assertion
+                    xmlns:saml2="urn:oasis:names:tc:SAML:2.0:assertion"
+                    xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+                    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ID="_d7b30200-d655-462c-8445-9ef210d6de50" IssueInstant="2017-12-19T15:16:48.285Z" Version="2.0" xsi:type="saml2:AssertionType">
+                <saml2:Issuer>http://localhost:9000/helloWorld</saml2:Issuer>
+                <ds:Signature
+                        xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
+                    <ds:SignedInfo>
+                        <ds:CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"/>
+                        <ds:SignatureMethod Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha1"/>
+                        <ds:Reference URI="#_d7b30200-d655-462c-8445-9ef210d6de50">
+                            <ds:Transforms>
+                                <ds:Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature"/>
+                                <ds:Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#">
+                                    <ec:InclusiveNamespaces
+                                            xmlns:ec="http://www.w3.org/2001/10/xml-exc-c14n#" PrefixList="xsd"/>
+                                </ds:Transform>
+                            </ds:Transforms>
+                            <ds:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1"/>
+                            <ds:DigestValue>uMSvIRNhkqdXXpeWt4sM25Acw6s=</ds:DigestValue>
+                        </ds:Reference>
+                    </ds:SignedInfo>
+                    <ds:SignatureValue>ZlJvtnDtsDm8K8vbYuc8nuDFBLd/J376jiP2c34lS84YIXK5zzaB15cN4K71qngJNgYFPAEwPSS2rC9BK/+va35Mr5f4N7NeIBjYYtTrbnWuaSaswzHtOAaoxfi8ANk/3sTMPzp9B+aKSttT7QjUTkSyufCIhfzuEfCHlG+udCw=</ds:SignatureValue>
+                    <ds:KeyInfo>
+                        <ds:X509Data>
+                            <ds:X509Certificate>MIICGjCCAYOgAwIBAgIESVRgATANBgkqhkiG9w0BAQUFADAzMRMwEQYDVQQKEwphcGFjaGUub3Jn
+                                MQwwCgYDVQQLEwNlbmcxDjAMBgNVBAMTBWN4ZmNhMB4XDTcwMDEwMTAwMDAwMFoXDTM4MDExOTAz
+                                MTQwN1owMzETMBEGA1UEChMKYXBhY2hlLm9yZzEMMAoGA1UECxMDZW5nMQ4wDAYDVQQDEwVhbGlj
+                                ZTCBnzANBgkqhkiG9w0BAQEFAAOBjQAwgYkCgYEAvu747/VShQ85f16DGSc4Ixh9PVpGguyEqrCs
+                                K8q9XHOYX9l9/g5wEC6ZcR2FwfNsoaHcKNPjd5sSTzVtBWmQjfBEfIqwTR7vuihOxyNTwEzVwIJz
+                                vo7p8/aYxk+VdBtQxq4UweIcf/iFkUbM1cZ1oiXRQzciRBi+C1BQCQE0qzsCAwEAAaM7MDkwIQYD
+                                VR0SBBowGIIWTk9UX0ZPUl9QUk9EVUNUSU9OX1VTRTAUBgNVHREEDTALgglsb2NhbGhvc3QwDQYJ
+                                KoZIhvcNAQEFBQADgYEAhLwkm+8psKt4gnbikGzV0TgpSWGcWxWKBi+z8tI2n6hFA5v1jVHHa4G9
+                                h3s0nxQ2TewzeR/k7gmgV2sI483NgrYHmTmLKaDBWza2pAuZuDhQH8GAEhJakFtKBP++EC9rNNpZ
+                                nqqHxx3qb2tW25qRtBzDmK921gg9PMomMc7uqRQ=</ds:X509Certificate>
+                        </ds:X509Data>
+                    </ds:KeyInfo>
+                </ds:Signature>
+                <saml2:Subject>
+                    <saml2:NameID Format="urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified" NameQualifier="sapID">ist24439</saml2:NameID>
+                    <saml2:SubjectConfirmation Method="urn:oasis:names:tc:SAML:2.0:cm:sender-vouches"/>
+                </saml2:Subject>
+                <saml2:Conditions NotBefore="2017-12-19T15:16:48.285Z" NotOnOrAfter="2017-12-19T15:21:48.285Z"/>
+                <saml2:AttributeStatement>
+                    <saml2:Attribute FriendlyName="subject" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri">
+                        <saml2:AttributeValue xsi:type="xsd:string">ist24439</saml2:AttributeValue>
+                    </saml2:Attribute>
+                </saml2:AttributeStatement>
+            </saml2:Assertion>
+        </wsse:Security>
+    </soap:Header>
+    <soap:Body>
+        <ns2:sayHi
+                xmlns:ns2="http://server.hw.demo/">
+            <text>World</text>
+        </ns2:sayHi>
+    </soap:Body>
+</soap:Envelope>
