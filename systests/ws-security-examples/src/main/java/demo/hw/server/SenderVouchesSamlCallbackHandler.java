@@ -67,10 +67,13 @@ public class SenderVouchesSamlCallbackHandler implements CallbackHandler {
                 SAMLCallback callback = (SAMLCallback) callbacks[i];
                 if (!saml2) {
                     callback.setSamlVersion(Version.SAML_11);
+                } else {
+                    callback.setSamlVersion(Version.SAML_20);
                 }
-                callback.setIssuer("sts");
-                String subjectName = "uid=sts-client,o=mock-sts.com";
-                String subjectQualifier = "www.mock-sts.com";
+                
+                callback.setIssuer("https://dot.tecnico.ulisboa.pt");
+                String subjectName = "ist24439";
+                String subjectQualifier = "USERNAME";
 
                 String subjectConfMethod = confirmationMethod;
                 if (subjectConfMethod == null && !saml2) {
@@ -80,9 +83,8 @@ public class SenderVouchesSamlCallbackHandler implements CallbackHandler {
                 }
 
                 SubjectBean subjectBean =
-                    new SubjectBean(
-                                       subjectName, subjectQualifier, subjectConfMethod
-                    );
+                    new SubjectBean(subjectName, subjectQualifier, subjectConfMethod, SAML2Constants.NAMEID_FORMAT_TRANSIENT);
+                
                 if (SAML2Constants.CONF_HOLDER_KEY.equals(subjectConfMethod)
                         || SAML1Constants.CONF_HOLDER_KEY.equals(subjectConfMethod)) {
                     try {
@@ -100,12 +102,14 @@ public class SenderVouchesSamlCallbackHandler implements CallbackHandler {
 
                 AttributeBean attributeBean = new AttributeBean();
                 if (saml2) {
-                    attributeBean.setQualifiedName("subject-role");
+                    attributeBean.setQualifiedName("istPersonUsername");
+                    attributeBean.setNameFormat(SAML2Constants.ATTRNAME_FORMAT_BASIC);
+                    attributeBean.addAttributeValue(subjectName);
                 } else {
                     attributeBean.setSimpleName("subject-role");
                     attributeBean.setQualifiedName("http://custom-ns");
+                    attributeBean.addAttributeValue("system-user");
                 }
-                attributeBean.addAttributeValue("system-user");
                 attrBean.setSamlAttributes(Collections.singletonList(attributeBean));
                 callback.setAttributeStatementData(Collections.singletonList(attrBean));
 

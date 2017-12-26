@@ -25,7 +25,10 @@ import java.util.Map;
 import org.apache.cxf.interceptor.LoggingInInterceptor;
 import org.apache.cxf.interceptor.LoggingOutInterceptor;
 import org.apache.cxf.jaxws.JaxWsProxyFactoryBean;
+import org.apache.wss4j.common.crypto.Merlin;
 import org.apache.wss4j.common.saml.builder.SAML1Constants;
+import org.apache.wss4j.common.saml.builder.SAML2Constants;
+import org.opensaml.saml.common.xml.SAMLConstants;
 
 import demo.hw.CommonPasswordCallback;
 import demo.hw.server.HelloWorld;
@@ -47,10 +50,12 @@ public final class Client {
         properties.put("ws-security.callback-handler", new CommonPasswordCallback());
                 
         SenderVouchesSamlCallbackHandler samlCallbackHandler = new SenderVouchesSamlCallbackHandler();
+        samlCallbackHandler.setSaml2(true);
         samlCallbackHandler.setSigned(true);
-        samlCallbackHandler.setConfirmationMethod(SAML1Constants.CONF_SENDER_VOUCHES);
+        samlCallbackHandler.setConfirmationMethod(SAML2Constants.CONF_SENDER_VOUCHES);
 
         properties.put("ws-security.saml-callback-handler", samlCallbackHandler);
+        
         properties.put("ws-security.signature.properties", "alice.properties");
         properties.put("ws-security.signature.username", "alice");
         properties.put("ws-security.encryption.properties", "bob-pub.properties");

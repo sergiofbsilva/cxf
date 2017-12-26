@@ -7,7 +7,7 @@
                         <wsp:Policy>
                             <sp:X509Token sp:IncludeToken="http://docs.oasis-open.org/ws-sx/ws-securitypolicy/200702/IncludeToken/AlwaysToRecipient">
                                 <wsp:Policy>
-                                    <sp:WssX509V3Token10/>
+                                    <sp:WssX509V3Token11/>
                                 </wsp:Policy>
                             </sp:X509Token>
                         </wsp:Policy>
@@ -16,7 +16,7 @@
                         <wsp:Policy>
                             <sp:X509Token sp:IncludeToken="http://docs.oasis-open.org/ws-sx/ws-securitypolicy/200702/IncludeToken/Never">
                                 <wsp:Policy>
-                                    <sp:WssX509V3Token10/>
+                                    <sp:WssX509V3Token11/>
                                 </wsp:Policy>
                             </sp:X509Token>
                         </wsp:Policy>
@@ -44,7 +44,7 @@
                 <wsp:Policy>
                     <sp:SamlToken sp:IncludeToken="http://docs.oasis-open.org/ws-sx/ws-securitypolicy/200702/IncludeToken/AlwaysToRecipient">
                         <wsp:Policy>
-                            <sp:WssSamlV11Token10/>
+                            <sp:WssSamlV20Token11/>
                         </wsp:Policy>
                     </sp:SamlToken>
                 </wsp:Policy>
