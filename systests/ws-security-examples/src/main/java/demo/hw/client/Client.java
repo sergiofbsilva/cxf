@@ -40,20 +40,21 @@ public final class Client {
         JaxWsProxyFactoryBean factory = new JaxWsProxyFactoryBean();
         factory.getInInterceptors().add(new LoggingInInterceptor());
         factory.getOutInterceptors().add(new LoggingOutInterceptor());
+
         factory.setAddress("http://localhost:9000/helloWorld");
         Map<String, Object> properties = new HashMap<String, Object>();
 
-        properties.put("security.callback-handler", new CommonPasswordCallback());
-
+        properties.put("ws-security.callback-handler", new CommonPasswordCallback());
+                
         SenderVouchesSamlCallbackHandler samlCallbackHandler = new SenderVouchesSamlCallbackHandler();
+        //samlCallbackHandler.setSigned(true);
         samlCallbackHandler.setConfirmationMethod(SAML1Constants.CONF_SENDER_VOUCHES);
 
-        properties.put("security.saml-callback-handler", samlCallbackHandler);
-        properties.put("security.signature.properties", "alice.properties");
-        properties.put("security.signature.username", "alice");
-        properties.put("security.encryption.properties", "bob.properties");
-        properties.put("security.encryption.username", "bob");
-
+        properties.put("ws-security.saml-callback-handler", samlCallbackHandler);
+        properties.put("ws-security.signature.properties", "alice.properties");
+        properties.put("ws-security.signature.username", "alice");
+        properties.put("ws-security.encryption.properties", "bob.properties");
+        properties.put("ws-security.encryption.username", "bob");
         
 //        properties.put("ws-security.self-sign-saml-assertion", "true");
         factory.setProperties(properties);

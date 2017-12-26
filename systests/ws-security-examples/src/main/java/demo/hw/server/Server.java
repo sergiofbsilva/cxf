@@ -39,9 +39,9 @@ public class Server {
 
         Map<String, Object> properties = new HashMap<String, Object>();
 
-        properties.put("security.callback-handler", new CommonPasswordCallback());
-        properties.put("security.signature.properties","bob.properties");
-        properties.put("security.encryption.username","useReqSigCert");
+        properties.put("ws-security.callback-handler", new CommonPasswordCallback());
+        properties.put("ws-security.signature.properties","bob.properties");
+        properties.put("ws-security.encryption.username","useReqSigCert");
         
         //properties.put("ws-security.self-sign-saml-assertion", "true");
         svrFactory.setProperties(properties);

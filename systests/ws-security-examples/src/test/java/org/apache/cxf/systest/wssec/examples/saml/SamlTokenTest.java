@@ -29,6 +29,8 @@ import javax.xml.ws.Service;
 
 import org.apache.cxf.Bus;
 import org.apache.cxf.bus.spring.SpringBusFactory;
+import org.apache.cxf.interceptor.LoggingInInterceptor;
+import org.apache.cxf.interceptor.LoggingOutInterceptor;
 import org.apache.cxf.systest.wssec.examples.common.SecurityTestUtil;
 import org.apache.cxf.systest.wssec.examples.common.TestParam;
 import org.apache.cxf.systest.wssec.examples.sts.STSServer;
@@ -207,14 +209,17 @@ public class SamlTokenTest extends AbstractBusClientServerTestBase {
         URL busFile = SamlTokenTest.class.getResource("client.xml");
 
         Bus bus = bf.createBus(busFile.toString());
+        
+        bus.getInInterceptors().add(new LoggingInInterceptor());
+        bus.getOutInterceptors().add(new LoggingOutInterceptor());
         SpringBusFactory.setDefaultBus(bus);
         SpringBusFactory.setThreadDefaultBus(bus);
-
         URL wsdl = SamlTokenTest.class.getResource("DoubleItSaml.wsdl");
         Service service = Service.create(wsdl, SERVICE_QNAME);
         QName portQName = new QName(NAMESPACE, "DoubleItAsymmetricSignedPort");
         DoubleItPortType samlPort = 
                 service.getPort(portQName, DoubleItPortType.class);
+        
         updateAddressPort(samlPort, test.getPort());
 
         int i = samlPort.doubleIt(25);
@@ -222,6 +227,7 @@ public class SamlTokenTest extends AbstractBusClientServerTestBase {
 
         ((java.io.Closeable)samlPort).close();
         bus.shutdown(true);
+        System.exit(0);
     }
     
     /**

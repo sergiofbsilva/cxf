@@ -25,8 +25,13 @@ import javax.jws.WebService;
 import org.apache.cxf.annotations.Policies;
 import org.apache.cxf.annotations.Policy;
 
-@Policies({@Policy(uri = "annotationpolicies/TestInterfacePolicy.xml")})
+@Policies({
+    @Policy(uri = "annotationpolicies/TestInterfacePolicy.xml")})
 @WebService
 public interface HelloWorld {
+    
+    @Policies({
+        @Policy(uri = "annotationpolicies/TestInterfacePolicyInput.xml", placement = Policy.Placement.BINDING_OPERATION_INPUT)
+    })
     String sayHi(@WebParam(name = "text") String text);
 }
