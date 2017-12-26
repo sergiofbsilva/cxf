@@ -31,7 +31,8 @@ import org.apache.cxf.annotations.Policy;
 public interface HelloWorld {
     
     @Policies({
-        @Policy(uri = "annotationpolicies/TestInterfacePolicyInput.xml", placement = Policy.Placement.BINDING_OPERATION_INPUT)
+        @Policy(uri = "annotationpolicies/TestInterfacePolicyInput.xml",
+            placement = Policy.Placement.BINDING_OPERATION_INPUT)
     })
     String sayHi(@WebParam(name = "text") String text);
 }

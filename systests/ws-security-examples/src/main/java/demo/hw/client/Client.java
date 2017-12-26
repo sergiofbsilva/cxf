@@ -47,13 +47,13 @@ public final class Client {
         properties.put("ws-security.callback-handler", new CommonPasswordCallback());
                 
         SenderVouchesSamlCallbackHandler samlCallbackHandler = new SenderVouchesSamlCallbackHandler();
-        //samlCallbackHandler.setSigned(true);
+        samlCallbackHandler.setSigned(true);
         samlCallbackHandler.setConfirmationMethod(SAML1Constants.CONF_SENDER_VOUCHES);
 
         properties.put("ws-security.saml-callback-handler", samlCallbackHandler);
         properties.put("ws-security.signature.properties", "alice.properties");
         properties.put("ws-security.signature.username", "alice");
-        properties.put("ws-security.encryption.properties", "bob.properties");
+        properties.put("ws-security.encryption.properties", "bob-pub.properties");
         properties.put("ws-security.encryption.username", "bob");
         
 //        properties.put("ws-security.self-sign-saml-assertion", "true");

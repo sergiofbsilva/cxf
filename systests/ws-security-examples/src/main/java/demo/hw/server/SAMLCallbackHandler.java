@@ -1,9 +1,25 @@
+/**
+ * Licensed to the Apache Software Foundation (ASF) under one
+ * or more contributor license agreements. See the NOTICE file
+ * distributed with this work for additional information
+ * regarding copyright ownership. The ASF licenses this file
+ * to you under the Apache License, Version 2.0 (the
+ * "License"); you may not use this file except in compliance
+ * with the License. You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing,
+ * software distributed under the License is distributed on an
+ * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+ * KIND, either express or implied. See the License for the
+ * specific language governing permissions and limitations
+ * under the License.
+ */
 package demo.hw.server;
-
+import com.google.common.collect.ImmutableList;
 import java.io.IOException;
-import java.security.MessageDigest;
 import java.security.cert.X509Certificate;
-import java.util.ArrayList;
 import java.util.Collections;
 
 import javax.security.auth.callback.Callback;
@@ -13,7 +29,6 @@ import javax.security.auth.callback.UnsupportedCallbackException;
 import org.apache.wss4j.common.crypto.Crypto;
 import org.apache.wss4j.common.crypto.CryptoFactory;
 import org.apache.wss4j.common.crypto.CryptoType;
-import org.apache.wss4j.common.ext.WSSecurityException;
 import org.apache.wss4j.common.saml.SAMLCallback;
 import org.apache.wss4j.common.saml.bean.AttributeBean;
 import org.apache.wss4j.common.saml.bean.AttributeStatementBean;
@@ -22,8 +37,6 @@ import org.apache.wss4j.common.saml.bean.KeyInfoBean.CERT_IDENTIFIER;
 import org.apache.wss4j.common.saml.bean.SubjectBean;
 import org.apache.wss4j.common.saml.bean.Version;
 import org.apache.wss4j.common.saml.builder.SAML2Constants;
-import org.apache.wss4j.policy.SPConstants;
-import org.apache.xml.security.algorithms.MessageDigestAlgorithm;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -31,7 +44,7 @@ import com.google.common.collect.ImmutableList;
 
 public class SAMLCallbackHandler implements CallbackHandler {
     
-    private static final Logger logger = LoggerFactory.getLogger(SAMLCallbackHandler.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(SAMLCallbackHandler.class);
     
     private String username;
 
@@ -40,10 +53,10 @@ public class SAMLCallbackHandler implements CallbackHandler {
     }
 
     public void handle(Callback[] callbacks) throws IOException, UnsupportedCallbackException {
-        logger.info("inside handle");
+        LOGGER.info("inside handle");
         for (int i = 0; i < callbacks.length; i++) {
             if (callbacks[i] instanceof SAMLCallback) {
-                logger.info("inside saml handler");
+                LOGGER.info("inside saml handler");
                 SAMLCallback callback = (SAMLCallback) callbacks[i];
                 callback.setSamlVersion(Version.SAML_20);
 
